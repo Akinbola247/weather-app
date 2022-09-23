@@ -11,7 +11,7 @@ search.addEventListener('keypress', (e)=> {
 
 getHome();
 function getHome(){
-    fetch("https://api.ipgeolocation.io/ipgeo?apiKey=86c36cac037d451ba29e6a4e06b0688f")
+    fetch("http://ip-api.com/json")
     .then ((city) => city.json())
     .then ((city) =>{
         const currentloc = city.city;
