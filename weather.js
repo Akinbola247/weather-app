@@ -9,15 +9,6 @@ search.addEventListener('keypress', (e)=> {
     }
 })
 
-getHome();
-function getHome(){
-    fetch("http://ip-api.com/json")
-    .then ((city) => city.json())
-    .then ((city) =>{
-        const currentloc = city.city;
-        getResult(currentloc);
-    })
-}
 
 
 function getResult(query){
@@ -67,4 +58,14 @@ function date(d){
  return day + " " + date + " " + month + ", " + year;
 }
 
+
+function getHome(){
+    fetch("http://ip-api.com/json")
+    .then ((city) => city.json())
+    .then ((city) =>{
+        const currentloc = city.city;
+        getResult(currentloc);
+    })
+}
+getHome();
   
