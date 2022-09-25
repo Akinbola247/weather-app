@@ -9,7 +9,11 @@ search.addEventListener('keypress', (e)=> {
     }
 })
 
-
+fetch('https://api.ipgeolocation.io/ipgeo?apiKey=86c36cac037d451ba29e6a4e06b0688f')
+.then ((ipgeo) => ipgeo.json())
+.then ((ipgeo) => {
+    getResult(ipgeo.city);
+})
 
 function getResult(query){
 fetch((api.baseurl)+"weather?q=" + query + "&units=metric&APPID=" + (api.key))
@@ -58,14 +62,4 @@ function date(d){
  return day + " " + date + " " + month + ", " + year;
 }
 
-
-function getHome(){
-    fetch("http://ip-api.com/json")
-    .then ((city) => city.json())
-    .then ((city) =>{
-        const currentloc = city.city;
-        getResult(currentloc);
-    })
-}
-getHome();
   
